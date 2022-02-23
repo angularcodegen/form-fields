@@ -1,0 +1,81 @@
+<form [formGroup]="form" class="container mt-5">
+  <div class="mb-3">
+    <label for="login" class="form-label">Login *</label>
+    <input
+      formControlName="login"
+      type="text"
+      class="form-control"
+      id="login"
+      aria-describedby="login"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password *</label>
+    <input
+      formControlName="password"
+      type="email"
+      class="form-control"
+      id="password"
+      aria-describedby="password"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="mb-3 form-check">
+    <input [formControl]="rememberMeControl" type="checkbox" class="form-check-input" id="newsletter" />
+    <label class="form-check-label" for="newsletter">Remember me</label>
+  </div>
+
+  <div class="mb-3">
+    <label for="hours" class="form-label">How long do you want to be remembered *</label>
+    <select id="hours" formControlName="hours" class="form-select">
+      <option value="">Choose it</option>
+      <option [value]="1">1 hour</option>
+      <option [value]="2">2 hours</option>
+    </select>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">VALID</th>
+        <th scope="col">PENDING</th>
+        <th scope="col">INVALID</th>
+        <th scope="col">DISABLED</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-primary">
+        <th scope="row">Form</th>
+        <td [class.text-danger]="form.valid">{{ form.valid }}</td>
+        <td [class.text-danger]="form.pending">{{ form.pending }}</td>
+        <td [class.text-danger]="form.invalid">{{ form.invalid }}</td>
+        <td [class.text-danger]="form.disabled">{{ form.disabled }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Login</th>
+        <td [class.text-danger]="login.valid">{{ login.valid }}</td>
+        <td [class.text-danger]="login.pending">{{ login.pending }}</td>
+        <td [class.text-danger]="login.invalid">{{ login.invalid }}</td>
+        <td [class.text-danger]="login.disabled">{{ login.disabled }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Password</th>
+        <td [class.text-danger]="password.valid">{{ password.valid }}</td>
+        <td [class.text-danger]="password.pending">{{ password.pending }}</td>
+        <td [class.text-danger]="password.invalid">{{ password.invalid }}</td>
+        <td [class.text-danger]="password.disabled">{{ password.disabled }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Hours</th>
+        <td [class.text-danger]="hours.valid">{{ hours.valid }}</td>
+        <td [class.text-danger]="hours.pending">{{ hours.pending }}</td>
+        <td [class.text-danger]="hours.invalid">{{ hours.invalid }}</td>
+        <td [class.text-danger]="hours.disabled">{{ hours.disabled }}</td>
+      </tr>
+    </tbody>
+  </table>
+</form>
