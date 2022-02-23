@@ -1,0 +1,58 @@
+<form [formGroup]="form" class="container mt-5">
+  <div class="mb-3">
+    <label for="firstname" class="form-label">First name *</label>
+    <input
+      formControlName="firstName"
+      type="email"
+      class="form-control"
+      id="firstname"
+      aria-describedby="emailHelp"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="lastname" class="form-label">Last name *</label>
+    <input
+      formControlName="lastName"
+      type="email"
+      class="form-control"
+      id="lastname"
+      aria-describedby="emailHelp"
+      autocomplete="off"
+    />
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">touched</th>
+        <th scope="col">dirty</th>
+        <th scope="col">pristine</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-primary">
+        <th scope="row">Form</th>
+        <td>{{ form.touched }}</td>
+        <td>{{ form.dirty }}</td>
+        <td>{{ form.pristine }}</td>
+      </tr>
+      <tr>
+        <th scope="row">FirmName</th>
+        <td>{{ firstName.touched }}</td>
+        <td>{{ firstName.dirty }}</td>
+        <td>{{ firstName.pristine }}</td>
+      </tr>
+      <tr>
+        <th scope="row">LastName</th>
+        <td>{{ lastName.touched }}</td>
+        <td>{{ lastName.dirty }}</td>
+        <td>{{ lastName.pristine }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-secondary" (click)="resetAll()">Reset</button>
+</form>
