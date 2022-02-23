@@ -23,11 +23,11 @@ export class AppComponent implements OnDestroy {
 
   send() {
     alert(`
-    form.value:
-    ${JSON.stringify(this.form.value)}
+form.value:
+${JSON.stringify(this.form.value)}
 
-    form.getRawValue():
-    ${JSON.stringify(this.form.getRawValue())}
+form.getRawValue():
+${JSON.stringify(this.form.getRawValue())}
     `);
   }
 
