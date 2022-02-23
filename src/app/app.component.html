@@ -1,5 +1,5 @@
 <form [formGroup]="form" class="container mt-5">
-  <div class="alert alert-primary" role="alert">Pamiętaj aby poprawnie uzupełnić formularz</div>
+  <div class="alert alert-primary text-center" role="alert">Do not forget to fill form</div>
   <div class="mb-3">
     <label for="firstname" class="form-label">First name *</label>
     <input
@@ -26,7 +26,7 @@
 
   <div class="mb-3 form-check">
     <input [formControl]="saveToNewslatter" type="checkbox" class="form-check-input" id="newsletter" />
-    <label class="form-check-label" for="newsletter">Save me to newsletter</label>
+    <label class="form-check-label" for="newsletter">Add me to newsletter</label>
   </div>
 
   <div *ngIf="saveToNewslatter.value === true" class="mb-3">
@@ -43,4 +43,7 @@
   </div>
 
   <button (click)="send()" type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+
+  <p class="mt-5">Form is: {{ form.status }}</p>
+  <pre class="mt-5"><code>{{ form.value | json }}</code></pre>
 </form>
