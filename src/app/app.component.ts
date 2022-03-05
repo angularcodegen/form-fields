@@ -25,7 +25,6 @@ export class AppComponent {
   }
 
   resetAll() {
-    this.form.markAsUntouched();
-    this.form.markAsPristine();
+    this.form.reset();
   }
 }
