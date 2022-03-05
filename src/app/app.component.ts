@@ -10,7 +10,7 @@ export class AppComponent implements OnDestroy {
   form = new FormGroup({
     login: new FormControl(null, [Validators.required, Validators.maxLength(5)]),
     password: new FormControl(null, [Validators.required, Validators.maxLength(5)], [exampleAsyncValidator]),
-    hours: new FormControl(null, [Validators.required]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
   });
 
   get login(): FormControl {
@@ -21,16 +21,16 @@ export class AppComponent implements OnDestroy {
     return this.form.get('password') as FormControl;
   }
 
-  get hours(): FormControl {
-    return this.form.get('hours') as FormControl;
+  get email(): FormControl {
+    return this.form.get('email') as FormControl;
   }
 
-  rememberMeControl = new FormControl(true);
+  toggleEmailControl = new FormControl(false);
 
-  private toggleEmailSub = this.rememberMeControl.valueChanges.subscribe(() => this.toggleHours());
+  private toggleEmailSub = this.toggleEmailControl.valueChanges.subscribe(() => this.toggleEmail());
 
-  toggleHours() {
-    const hours = this.form.get('hours')!;
+  toggleEmail() {
+    const hours = this.form.get('email')!;
     hours.enabled ? hours.disable() : hours.enable();
   }
 
@@ -41,8 +41,6 @@ export class AppComponent implements OnDestroy {
 
 function exampleAsyncValidator(control: AbstractControl): Promise<ValidationErrors | null> {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      control.value === 'test' ? resolve(null) : resolve({ example: true });
-    }, 2500);
+    setTimeout(() => resolve(null), 2500);
   });
 }

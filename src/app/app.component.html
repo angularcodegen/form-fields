@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="container mt-5">
+<form [formGroup]="form" class="container my-5">
   <div class="mb-3">
     <label for="login" class="form-label">Login *</label>
     <input
@@ -21,20 +21,24 @@
       aria-describedby="password"
       autocomplete="off"
     />
+    <p class="form-text">Password contains async validator</p>
   </div>
 
   <div class="mb-3 form-check">
-    <input [formControl]="rememberMeControl" type="checkbox" class="form-check-input" id="newsletter" />
-    <label class="form-check-label" for="newsletter">Remember me</label>
+    <input [formControl]="toggleEmailControl" type="checkbox" class="form-check-input" id="newsletter" />
+    <label class="form-check-label" for="newsletter"> Disable email control </label>
   </div>
 
   <div class="mb-3">
-    <label for="hours" class="form-label">How long do you want to be remembered *</label>
-    <select id="hours" formControlName="hours" class="form-select">
-      <option value="">Choose it</option>
-      <option [value]="1">1 hour</option>
-      <option [value]="2">2 hours</option>
-    </select>
+    <label for="email" class="form-label">Email address *</label>
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control"
+      id="email"
+      aria-describedby="emailHelp"
+      autocomplete="off"
+    />
   </div>
 
   <table class="table table-bordered">
@@ -70,11 +74,11 @@
         <td [class.text-danger]="password.disabled">{{ password.disabled }}</td>
       </tr>
       <tr>
-        <th scope="row">Hours</th>
-        <td [class.text-danger]="hours.valid">{{ hours.valid }}</td>
-        <td [class.text-danger]="hours.pending">{{ hours.pending }}</td>
-        <td [class.text-danger]="hours.invalid">{{ hours.invalid }}</td>
-        <td [class.text-danger]="hours.disabled">{{ hours.disabled }}</td>
+        <th scope="row">Email</th>
+        <td [class.text-danger]="email.valid">{{ email.valid }}</td>
+        <td [class.text-danger]="email.pending">{{ email.pending }}</td>
+        <td [class.text-danger]="email.invalid">{{ email.invalid }}</td>
+        <td [class.text-danger]="email.disabled">{{ email.disabled }}</td>
       </tr>
     </tbody>
   </table>
