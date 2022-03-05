@@ -24,21 +24,42 @@
     <p class="form-text">Password contains async validator</p>
   </div>
 
-  <div class="mb-3 form-check">
-    <input [formControl]="toggleEmailControl" type="checkbox" class="form-check-input" id="newsletter" />
-    <label class="form-check-label" for="newsletter"> Disable email control </label>
-  </div>
-
   <div class="mb-3">
     <label for="email" class="form-label">Email address *</label>
     <input
       formControlName="email"
-      type="email"
+      type="password"
       class="form-control"
       id="email"
       aria-describedby="emailHelp"
       autocomplete="off"
     />
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <div class="mb-3 form-check">
+        <input [formControl]="toggleLoginControl" type="checkbox" class="form-check-input" id="toggleLoginControl" />
+        <label class="form-check-label" for="toggleLoginControl"> Disable login control </label>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="mb-3 form-check">
+        <input
+          [formControl]="togglePasswordControl"
+          type="checkbox"
+          class="form-check-input"
+          id="togglePasswordControl"
+        />
+        <label class="form-check-label" for="togglePasswordControl"> Disable password control </label>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="mb-3 form-check">
+        <input [formControl]="toggleEmailControl" type="checkbox" class="form-check-input" id="toggleEmailControl" />
+        <label class="form-check-label" for="toggleEmailControl"> Disable email control </label>
+      </div>
+    </div>
   </div>
 
   <table class="table table-bordered">
