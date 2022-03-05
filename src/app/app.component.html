@@ -1,9 +1,9 @@
-<form [formGroup]="form" class="container mt-5">
+<form [formGroup]="form" class="container my-5">
   <div class="mb-3">
     <label for="firstname" class="form-label">First name *</label>
     <input
       formControlName="firstName"
-      type="email"
+      type="text"
       class="form-control"
       id="firstname"
       aria-describedby="emailHelp"
@@ -23,11 +23,24 @@
     />
   </div>
 
+  <div class="mb-3">
+    <label for="age" class="form-label">Age *</label>
+    <input
+      formControlName="age"
+      type="number"
+      class="form-control"
+      id="age"
+      aria-describedby="emailHelp"
+      autocomplete="off"
+    />
+  </div>
+
   <table class="table table-bordered">
     <thead>
       <tr>
         <th scope="col"></th>
         <th scope="col">touched</th>
+        <th scope="col">untouched</th>
         <th scope="col">dirty</th>
         <th scope="col">pristine</th>
       </tr>
@@ -35,21 +48,31 @@
     <tbody>
       <tr class="table-primary">
         <th scope="row">Form</th>
-        <td>{{ form.touched }}</td>
-        <td>{{ form.dirty }}</td>
-        <td>{{ form.pristine }}</td>
+        <td [class.text-danger]="form.touched">{{ form.touched }}</td>
+        <td [class.text-danger]="form.untouched">{{ form.untouched }}</td>
+        <td [class.text-danger]="form.dirty">{{ form.dirty }}</td>
+        <td [class.text-danger]="form.pristine">{{ form.pristine }}</td>
       </tr>
       <tr>
         <th scope="row">FirstName</th>
-        <td>{{ firstName.touched }}</td>
-        <td>{{ firstName.dirty }}</td>
-        <td>{{ firstName.pristine }}</td>
+        <td [class.text-danger]="firstName.touched">{{ firstName.touched }}</td>
+        <td [class.text-danger]="firstName.untouched">{{ firstName.untouched }}</td>
+        <td [class.text-danger]="firstName.dirty">{{ firstName.dirty }}</td>
+        <td [class.text-danger]="firstName.pristine">{{ firstName.pristine }}</td>
       </tr>
       <tr>
         <th scope="row">LastName</th>
-        <td>{{ lastName.touched }}</td>
-        <td>{{ lastName.dirty }}</td>
-        <td>{{ lastName.pristine }}</td>
+        <td [class.text-danger]="lastName.touched">{{ lastName.touched }}</td>
+        <td [class.text-danger]="lastName.untouched">{{ lastName.untouched }}</td>
+        <td [class.text-danger]="lastName.dirty">{{ lastName.dirty }}</td>
+        <td [class.text-danger]="lastName.pristine">{{ lastName.pristine }}</td>
+      </tr>
+      <tr>
+        <th scope="row">Age</th>
+        <td [class.text-danger]="age.touched">{{ age.touched }}</td>
+        <td [class.text-danger]="age.untouched">{{ age.untouched }}</td>
+        <td [class.text-danger]="age.dirty">{{ age.dirty }}</td>
+        <td [class.text-danger]="age.pristine">{{ age.pristine }}</td>
       </tr>
     </tbody>
   </table>
