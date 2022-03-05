@@ -1,5 +1,4 @@
-<form [formGroup]="form" class="container mt-5">
-  <div class="alert alert-primary text-center" role="alert">Do not forget to fill form</div>
+<form [formGroup]="form" class="container my-5">
   <div class="mb-3">
     <label for="firstname" class="form-label">First name *</label>
     <input
@@ -26,10 +25,10 @@
 
   <div class="mb-3 form-check">
     <input [formControl]="saveToNewslatter" type="checkbox" class="form-check-input" id="newsletter" />
-    <label class="form-check-label" for="newsletter">Add me to newsletter</label>
+    <label class="form-check-label" for="newsletter"> Disable email control </label>
   </div>
 
-  <div *ngIf="saveToNewslatter.value === true" class="mb-3">
+  <div class="mb-3">
     <label for="email" class="form-label">Email address *</label>
     <input
       formControlName="email"
@@ -39,11 +38,24 @@
       aria-describedby="emailHelp"
       autocomplete="off"
     />
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
 
-  <button (click)="send()" type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
-
-  <p class="mt-5">Form is: {{ form.status }}</p>
-  <pre class="mt-5"><code>{{ form.value | json }}</code></pre>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">value</th>
+        <th scope="col">getRawValue()</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <pre><code>{{ form.value | json }}</code></pre>
+        </td>
+        <td>
+          <pre><code>{{ form.getRawValue() | json }}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </form>

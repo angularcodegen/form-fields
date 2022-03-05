@@ -12,23 +12,17 @@ export class AppComponent implements OnDestroy {
     email: new FormControl({ disabled: true, value: null }, [Validators.required]),
   });
 
-  saveToNewslatter = new FormControl(false);
+  get email() {
+    return this.form.get('email')!;
+  }
+
+  saveToNewslatter = new FormControl(true);
 
   private toggleEmailSub = this.saveToNewslatter.valueChanges.subscribe(() => this.toggleEmail());
 
   toggleEmail() {
     const email = this.form.get('email')!;
     email.enabled ? email.disable() : email.enable();
-  }
-
-  send() {
-    alert(`
-form.value:
-${JSON.stringify(this.form.value)}
-
-form.getRawValue():
-${JSON.stringify(this.form.getRawValue())}
-    `);
   }
 
   ngOnDestroy(): void {
